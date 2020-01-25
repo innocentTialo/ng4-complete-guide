@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng4-complete-guide';
+  componentToDisplay: string = 'recipe-book';
+
+  onSelectComponentToDisplay(component: string) {
+    this.componentToDisplay = component;
+  }
 }

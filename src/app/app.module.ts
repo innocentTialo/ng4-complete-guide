@@ -10,8 +10,11 @@ import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.compo
 import { RecipeItemComponent } from './recipe-book/recipe-list/recipe-item/recipe-item.component';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
 import {FormsModule} from '@angular/forms';
-import { UnlessDirective } from './_directives/export';
-import {DropdownDirective} from './_shared/directives/dropdown.directive';
+import { UnlessDirective, DropdownDirective } from './_directives/export';
+import {AppRoutingModule} from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +27,15 @@ import {DropdownDirective} from './_shared/directives/dropdown.directive';
     RecipeItemComponent,
     RecipeDetailComponent,
     UnlessDirective,
-    DropdownDirective
+    DropdownDirective,
+    PageNotFoundComponent,
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

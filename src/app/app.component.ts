@@ -6,9 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  componentToDisplay: string = 'recipe-book';
 
-  onSelectComponentToDisplay(component: string) {
-    this.componentToDisplay = component;
-  }
 }

@@ -1,1 +1,2 @@
-<h4>please select a recipe!</h4>
+<h4 *ngIf="thereIsRecipes">please select a recipe!</h4>
+<h4 *ngIf="!thereIsRecipes">There is no recipe! Please add a new ones!</h4>

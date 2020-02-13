@@ -19,7 +19,7 @@
         <li><a (click)="addRecipeToShoppingList()" style="cursor: pointer;">To Shopping List</a></li>
         <li><a [routerLink]="['edit']" style="cursor: pointer;">Edit Recipe</a></li><!-- we can also use a click listener here to make navigation in a method of
     component itself-->
-        <li><a style="cursor: pointer;">Delete Recipe</a></li>
+        <li><a style="cursor: pointer;" (click)="onDeleteRecipe()">Delete Recipe</a></li>
       </ul>
     </div>
   </div>

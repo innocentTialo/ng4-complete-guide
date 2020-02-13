@@ -16,6 +16,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   ingredient: Ingredient = new Ingredient(null, null);
   subscription: Subscription;
   editMode = false;
+  ingredientId: number;
 
   constructor(private shoppingListService: ShoppingListService) {
     console.log('in constructor');
@@ -24,8 +25,9 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   ngOnInit() {
     console.log('in ngONinit');
     this.subscription = this.shoppingListService.ingredientsToProcess.subscribe(
-      (ingredientToProcess: Ingredient) => {
-        this.ingredient = ingredientToProcess;
+      (index: number) => {
+        this.ingredient = this.shoppingListService.getIngredient(index);
+        this.ingredientId = index;
         this.formIngredient.setValue({
           name: this.ingredient.name,
           amount: this.ingredient.amount
@@ -36,10 +38,13 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   }
 
   onAddNew() {
-    console.log(this.formIngredient.value);
     this.ingredient.name = this.formIngredient.value['name'];
     this.ingredient.amount = this.formIngredient.value['amount'];
-    this.shoppingListService.addOrEditIngredient(this.ingredient);
+    if (this.editMode){
+      this.shoppingListService.updateIngredient(this.ingredientId, this.ingredient)
+    } else {
+      this.shoppingListService.addIngredient(this.ingredient);
+    }
     this.resetForm();
   }
 
